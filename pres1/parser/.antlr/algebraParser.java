@@ -1,4 +1,4 @@
-// Generated from c:\Users\rschade\archsig\pres1\parser\algebra.g4 by ANTLR 4.7.1
+// Generated from c:\Users\rschade\archsig\pres1\parser\Algebra.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,15 +9,15 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class algebraParser extends Parser {
+public class AlgebraParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, VL=8, NM=9, VR=10, 
-		WS=11;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, VL=9, 
+		NM=10, VR=11, WS=12;
 	public static final int
 		RULE_s = 0, RULE_expr = 1;
 	public static final String[] ruleNames = {
@@ -25,10 +25,11 @@ public class algebraParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'-'", "'^'", "'/'", "'*'", "'+'", "'('", "')'"
+		null, "'='", "'-'", "'^'", "'/'", "'*'", "'+'", "'('", "')'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, null, null, null, null, null, null, "VL", "NM", "VR", "WS"
+		null, null, null, null, null, null, null, null, null, "VL", "NM", "VR", 
+		"WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -64,7 +65,7 @@ public class algebraParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "algebra.g4"; }
+	public String getGrammarFileName() { return "Algebra.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -75,15 +76,18 @@ public class algebraParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public algebraParser(TokenStream input) {
+	public AlgebraParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 	public static class SContext extends ParserRuleContext {
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
 		}
-		public TerminalNode EOF() { return getToken(algebraParser.EOF, 0); }
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public TerminalNode EOF() { return getToken(AlgebraParser.EOF, 0); }
 		public SContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -93,12 +97,25 @@ public class algebraParser extends Parser {
 	public final SContext s() throws RecognitionException {
 		SContext _localctx = new SContext(_ctx, getState());
 		enterRule(_localctx, 0, RULE_s);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(4);
 			expr(0);
-			setState(5);
+			setState(7);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==T__0) {
+				{
+				setState(5);
+				match(T__0);
+				setState(6);
+				expr(0);
+				}
+			}
+
+			setState(9);
 			match(EOF);
 			}
 		}
@@ -114,7 +131,7 @@ public class algebraParser extends Parser {
 	}
 
 	public static class ExprContext extends ParserRuleContext {
-		public TerminalNode VL() { return getToken(algebraParser.VL, 0); }
+		public TerminalNode VL() { return getToken(AlgebraParser.VL, 0); }
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
@@ -143,60 +160,60 @@ public class algebraParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(16);
+			setState(20);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case T__0:
+			case T__1:
 			case VL:
 				{
-				setState(9);
+				setState(13);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if (_la==T__0) {
+				if (_la==T__1) {
 					{
-					setState(8);
-					match(T__0);
+					setState(12);
+					match(T__1);
 					}
 				}
 
-				setState(11);
+				setState(15);
 				match(VL);
 				}
 				break;
-			case T__5:
+			case T__6:
 				{
-				setState(12);
-				match(T__5);
-				setState(13);
-				expr(0);
-				setState(14);
+				setState(16);
 				match(T__6);
+				setState(17);
+				expr(0);
+				setState(18);
+				match(T__7);
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(29);
+			setState(33);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(27);
+					setState(31);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 					case 1:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(18);
+						setState(22);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(19);
-						match(T__1);
-						setState(20);
+						setState(23);
+						match(T__2);
+						setState(24);
 						expr(5);
 						}
 						break;
@@ -204,11 +221,11 @@ public class algebraParser extends Parser {
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(21);
+						setState(25);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(22);
+						setState(26);
 						_la = _input.LA(1);
-						if ( !(_la==T__2 || _la==T__3) ) {
+						if ( !(_la==T__3 || _la==T__4) ) {
 						_errHandler.recoverInline(this);
 						}
 						else {
@@ -216,7 +233,7 @@ public class algebraParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(23);
+						setState(27);
 						expr(4);
 						}
 						break;
@@ -224,11 +241,11 @@ public class algebraParser extends Parser {
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(24);
+						setState(28);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(25);
+						setState(29);
 						_la = _input.LA(1);
-						if ( !(_la==T__0 || _la==T__4) ) {
+						if ( !(_la==T__1 || _la==T__5) ) {
 						_errHandler.recoverInline(this);
 						}
 						else {
@@ -236,16 +253,16 @@ public class algebraParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(26);
+						setState(30);
 						expr(3);
 						}
 						break;
 					}
 					} 
 				}
-				setState(31);
+				setState(35);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			}
 			}
 		}
@@ -280,17 +297,18 @@ public class algebraParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\r#\4\2\t\2\4\3\t"+
-		"\3\3\2\3\2\3\2\3\3\3\3\5\3\f\n\3\3\3\3\3\3\3\3\3\3\3\5\3\23\n\3\3\3\3"+
-		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3\36\n\3\f\3\16\3!\13\3\3\3\2\3\4\4\2"+
-		"\4\2\4\3\2\5\6\4\2\3\3\7\7\2%\2\6\3\2\2\2\4\22\3\2\2\2\6\7\5\4\3\2\7\b"+
-		"\7\2\2\3\b\3\3\2\2\2\t\13\b\3\1\2\n\f\7\3\2\2\13\n\3\2\2\2\13\f\3\2\2"+
-		"\2\f\r\3\2\2\2\r\23\7\n\2\2\16\17\7\b\2\2\17\20\5\4\3\2\20\21\7\t\2\2"+
-		"\21\23\3\2\2\2\22\t\3\2\2\2\22\16\3\2\2\2\23\37\3\2\2\2\24\25\f\6\2\2"+
-		"\25\26\7\4\2\2\26\36\5\4\3\7\27\30\f\5\2\2\30\31\t\2\2\2\31\36\5\4\3\6"+
-		"\32\33\f\4\2\2\33\34\t\3\2\2\34\36\5\4\3\5\35\24\3\2\2\2\35\27\3\2\2\2"+
-		"\35\32\3\2\2\2\36!\3\2\2\2\37\35\3\2\2\2\37 \3\2\2\2 \5\3\2\2\2!\37\3"+
-		"\2\2\2\6\13\22\35\37";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\16\'\4\2\t\2\4\3"+
+		"\t\3\3\2\3\2\3\2\5\2\n\n\2\3\2\3\2\3\3\3\3\5\3\20\n\3\3\3\3\3\3\3\3\3"+
+		"\3\3\5\3\27\n\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3\"\n\3\f\3\16\3"+
+		"%\13\3\3\3\2\3\4\4\2\4\2\4\3\2\6\7\4\2\4\4\b\b\2*\2\6\3\2\2\2\4\26\3\2"+
+		"\2\2\6\t\5\4\3\2\7\b\7\3\2\2\b\n\5\4\3\2\t\7\3\2\2\2\t\n\3\2\2\2\n\13"+
+		"\3\2\2\2\13\f\7\2\2\3\f\3\3\2\2\2\r\17\b\3\1\2\16\20\7\4\2\2\17\16\3\2"+
+		"\2\2\17\20\3\2\2\2\20\21\3\2\2\2\21\27\7\13\2\2\22\23\7\t\2\2\23\24\5"+
+		"\4\3\2\24\25\7\n\2\2\25\27\3\2\2\2\26\r\3\2\2\2\26\22\3\2\2\2\27#\3\2"+
+		"\2\2\30\31\f\6\2\2\31\32\7\5\2\2\32\"\5\4\3\7\33\34\f\5\2\2\34\35\t\2"+
+		"\2\2\35\"\5\4\3\6\36\37\f\4\2\2\37 \t\3\2\2 \"\5\4\3\5!\30\3\2\2\2!\33"+
+		"\3\2\2\2!\36\3\2\2\2\"%\3\2\2\2#!\3\2\2\2#$\3\2\2\2$\5\3\2\2\2%#\3\2\2"+
+		"\2\7\t\17\26!#";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

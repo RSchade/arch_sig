@@ -1,39 +1,39 @@
-// Generated from algebra.g4 by ANTLR 4.9
+// Generated from Algebra.g4 by ANTLR 4.9
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link algebraListener},
+ * This class provides an empty implementation of {@link AlgebraListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class algebraBaseListener implements algebraListener {
+public class AlgebraBaseListener implements AlgebraListener {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterS(algebraParser.SContext ctx) { }
+	@Override public void enterS(AlgebraParser.SContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitS(algebraParser.SContext ctx) { }
+	@Override public void exitS(AlgebraParser.SContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr(algebraParser.ExprContext ctx) { }
+	@Override public void enterExpr(AlgebraParser.ExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpr(algebraParser.ExprContext ctx) { }
+	@Override public void exitExpr(AlgebraParser.ExprContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

@@ -1,29 +1,29 @@
-// Generated from algebra.g4 by ANTLR 4.9
+// Generated from Algebra.g4 by ANTLR 4.9
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
  * This interface defines a complete listener for a parse tree produced by
- * {@link algebraParser}.
+ * {@link AlgebraParser}.
  */
-public interface algebraListener extends ParseTreeListener {
+public interface AlgebraListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link algebraParser#s}.
+	 * Enter a parse tree produced by {@link AlgebraParser#s}.
 	 * @param ctx the parse tree
 	 */
-	void enterS(algebraParser.SContext ctx);
+	void enterS(AlgebraParser.SContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link algebraParser#s}.
+	 * Exit a parse tree produced by {@link AlgebraParser#s}.
 	 * @param ctx the parse tree
 	 */
-	void exitS(algebraParser.SContext ctx);
+	void exitS(AlgebraParser.SContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link algebraParser#expr}.
+	 * Enter a parse tree produced by {@link AlgebraParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr(algebraParser.ExprContext ctx);
+	void enterExpr(AlgebraParser.ExprContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link algebraParser#expr}.
+	 * Exit a parse tree produced by {@link AlgebraParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr(algebraParser.ExprContext ctx);
+	void exitExpr(AlgebraParser.ExprContext ctx);
 }

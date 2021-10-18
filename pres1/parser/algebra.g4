@@ -1,5 +1,5 @@
-grammar algebra;
-s : expr EOF;
+grammar Algebra;
+s : expr ('=' expr)? EOF;
 expr : '-'? VL 
     | expr '^' expr 
     | expr ('/' | '*') expr 
