@@ -1,3 +1,3 @@
 #!/bin/bash
-antlr4 algebra.g4
-javac algebra*.java
+antlr4 Algebra.g4
+javac Algebra*.java
