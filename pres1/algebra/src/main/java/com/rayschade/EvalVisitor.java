@@ -19,7 +19,7 @@ public class EvalVisitor extends AlgebraBaseVisitor<Double> {
 
     private Double parseBinary(AlgebraParser.ExprContext ctx) {
         Double val = null;
-        var op = Stream.of(ctx.EXP(), ctx.MIN(), ctx.PLUS(), ctx.MIN(), ctx.DIV())
+        var op = Stream.of(ctx.EXP(), ctx.MIN(), ctx.PLUS(), ctx.MIN(), ctx.DIV(), ctx.MULT())
                 .filter(Objects::nonNull)
                 .findFirst()
                 .orElse(null);
