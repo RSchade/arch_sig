@@ -17,7 +17,7 @@ public class AlgebraParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, MIN=3, EXP=4, MDIV=5, PMIN=6, VL=7, NM=8, WS=9;
+		T__0=1, T__1=2, MIN=3, EXP=4, MULT=5, DIV=6, PLUS=7, VL=8, NM=9, WS=10;
 	public static final int
 		RULE_s = 0, RULE_expr = 1;
 	private static String[] makeRuleNames() {
@@ -29,13 +29,13 @@ public class AlgebraParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'('", "')'", "'-'", "'^'"
+			null, "'('", "')'", "'-'", "'^'", "'*'", "'/'", "'+'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, "MIN", "EXP", "MDIV", "PMIN", "VL", "NM", "WS"
+			null, null, null, "MIN", "EXP", "MULT", "DIV", "PLUS", "VL", "NM", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -147,8 +147,9 @@ public class AlgebraParser extends Parser {
 			return getRuleContext(ExprContext.class,i);
 		}
 		public TerminalNode EXP() { return getToken(AlgebraParser.EXP, 0); }
-		public TerminalNode MDIV() { return getToken(AlgebraParser.MDIV, 0); }
-		public TerminalNode PMIN() { return getToken(AlgebraParser.PMIN, 0); }
+		public TerminalNode MULT() { return getToken(AlgebraParser.MULT, 0); }
+		public TerminalNode DIV() { return getToken(AlgebraParser.DIV, 0); }
+		public TerminalNode PLUS() { return getToken(AlgebraParser.PLUS, 0); }
 		public ExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -240,7 +241,15 @@ public class AlgebraParser extends Parser {
 						setState(21);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
 						setState(22);
-						match(MDIV);
+						_la = _input.LA(1);
+						if ( !(_la==MULT || _la==DIV) ) {
+						_errHandler.recoverInline(this);
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
 						setState(23);
 						expr(4);
 						}
@@ -252,7 +261,15 @@ public class AlgebraParser extends Parser {
 						setState(24);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
 						setState(25);
-						match(PMIN);
+						_la = _input.LA(1);
+						if ( !(_la==MIN || _la==PLUS) ) {
+						_errHandler.recoverInline(this);
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
 						setState(26);
 						expr(3);
 						}
@@ -297,16 +314,17 @@ public class AlgebraParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\13#\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\f#\4\2\t\2\4\3\t"+
 		"\3\3\2\3\2\3\2\3\3\3\3\5\3\f\n\3\3\3\3\3\3\3\3\3\3\3\5\3\23\n\3\3\3\3"+
 		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3\36\n\3\f\3\16\3!\13\3\3\3\2\3\4\4\2"+
-		"\4\2\2\2%\2\6\3\2\2\2\4\22\3\2\2\2\6\7\5\4\3\2\7\b\7\2\2\3\b\3\3\2\2\2"+
-		"\t\13\b\3\1\2\n\f\7\5\2\2\13\n\3\2\2\2\13\f\3\2\2\2\f\r\3\2\2\2\r\23\7"+
-		"\t\2\2\16\17\7\3\2\2\17\20\5\4\3\2\20\21\7\4\2\2\21\23\3\2\2\2\22\t\3"+
-		"\2\2\2\22\16\3\2\2\2\23\37\3\2\2\2\24\25\f\6\2\2\25\26\7\6\2\2\26\36\5"+
-		"\4\3\7\27\30\f\5\2\2\30\31\7\7\2\2\31\36\5\4\3\6\32\33\f\4\2\2\33\34\7"+
-		"\b\2\2\34\36\5\4\3\5\35\24\3\2\2\2\35\27\3\2\2\2\35\32\3\2\2\2\36!\3\2"+
-		"\2\2\37\35\3\2\2\2\37 \3\2\2\2 \5\3\2\2\2!\37\3\2\2\2\6\13\22\35\37";
+		"\4\2\4\3\2\7\b\4\2\5\5\t\t\2%\2\6\3\2\2\2\4\22\3\2\2\2\6\7\5\4\3\2\7\b"+
+		"\7\2\2\3\b\3\3\2\2\2\t\13\b\3\1\2\n\f\7\5\2\2\13\n\3\2\2\2\13\f\3\2\2"+
+		"\2\f\r\3\2\2\2\r\23\7\n\2\2\16\17\7\3\2\2\17\20\5\4\3\2\20\21\7\4\2\2"+
+		"\21\23\3\2\2\2\22\t\3\2\2\2\22\16\3\2\2\2\23\37\3\2\2\2\24\25\f\6\2\2"+
+		"\25\26\7\6\2\2\26\36\5\4\3\7\27\30\f\5\2\2\30\31\t\2\2\2\31\36\5\4\3\6"+
+		"\32\33\f\4\2\2\33\34\t\3\2\2\34\36\5\4\3\5\35\24\3\2\2\2\35\27\3\2\2\2"+
+		"\35\32\3\2\2\2\36!\3\2\2\2\37\35\3\2\2\2\37 \3\2\2\2 \5\3\2\2\2!\37\3"+
+		"\2\2\2\6\13\22\35\37";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
