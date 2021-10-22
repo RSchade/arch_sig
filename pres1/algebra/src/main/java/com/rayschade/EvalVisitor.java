@@ -9,6 +9,9 @@ import java.util.stream.Stream;
 public class EvalVisitor extends AlgebraBaseVisitor<Double> {
     @Override
     public Double visitS(AlgebraParser.SContext ctx) {
+        if (ctx.expr().expr().size() == 1) {
+            return visitExpr(ctx.expr().expr(0));
+        }
         return visitExpr(ctx.expr());
     }
 
